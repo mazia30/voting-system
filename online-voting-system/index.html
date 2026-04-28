@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+
+    <!-- SCREEN 1: VOTER LOGIN -->
+    <div id="screen-1" class="screen active">
+        <div class="glass-card login-card">
+            <div class="header">
+                <div class="icon">🔒</div>
+                <h2>Voter Verification</h2>
+                <p>Secure Election Commission Portal</p>
+            </div>
+            <form id="voter-form">
+                <div class="input-group">
+                    <label for="voter-name">Full Name</label>
+                    <input type="text" id="voter-name" placeholder="Enter as per records" required>
+                </div>
+                <div class="input-group">
+                    <label for="voter-id">Voter ID</label>
+                    <input type="text" id="voter-id" placeholder="e.g. ABC1234567" required>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="number" id="mobile" placeholder="10 Digits" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="Min 18" required>
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="eligibility" required>
+                    <label for="eligibility">I confirm I am eligible to vote</label>
+                </div>
+                <div id="form-errors" class="error-msg"></div>
+                <button type="submit" id="proceed-btn" class="btn primary-btn">Proceed To Vote</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: CANDIDATE SELECTION -->
+    <div id="screen-2" class="screen">
+        <div class="glass-card dashboard-card">
+            <div class="dashboard-header">
+                <div>
+                    <h2>Digital Election 2026</h2>
+                    <p>Welcome, <span id="welcome-name">Voter</span></p>
+                </div>
+                <div class="notice">
+                    <span class="alert-icon">⚠️</span> One vote only
+                </div>
+            </div>
+            <div id="candidate-container" class="candidate-grid">
+                <!-- Dynamically loaded candidates -->
+            </div>
+            <div class="action-footer">
+                <button id="submit-vote" class="btn success-btn" disabled>Submit Vote</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: VOTE SUCCESS -->
+    <div id="screen-3" class="screen">
+        <div class="glass-card success-card">
+            <div class="success-icon">✅</div>
+            <h2>Vote Submitted Successfully</h2>
+            <p>Thank you for participating in the democratic process.</p>
+            <div class="selection-confirm" id="success-message">
+                <!-- Selected candidate info -->
+            </div>
+            <button id="view-results-btn" class="btn primary-btn">View Live Results</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 4: LIVE RESULT DISPLAY -->
+    <div id="screen-4" class="screen">
+        <div class="glass-card results-card">
+            <div class="header">
+                <h2>📊 Live Election Results</h2>
+                <p>Simulated Counting Process</p>
+            </div>
+            <div id="winner-display" class="winner-highlight">
+                <!-- Winner info -->
+            </div>
+            <div id="result-container" class="results-list">
+                <!-- Progress bars -->
+            </div>
+            <div class="action-footer">
+                <button id="summary-btn" class="btn outline-btn">View Election Summary</button>
+                <button onclick="location.reload()" class="btn primary-btn">Start New Session</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="candidates.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
